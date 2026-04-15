@@ -29,7 +29,7 @@ report: run-all
 	@echo "Reports generated under reports/"
 
 real-benchmarks:
-	$(PYTHON) scripts/run_real_benchmarks.py
+	PYTHONPATH=. $(PYTHON) scripts/run_real_benchmarks.py
 
 benchmark-summary:
-	$(PYTHON) scripts/generate_benchmark_summary.py
+	PYTHONPATH=. $(PYTHON) scripts/generate_benchmark_summary.py
