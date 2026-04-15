@@ -1,0 +1,7 @@
+{
+  "project": "03-human-in-the-loop-review",
+  "task": "Human-in-the-loop workflow with escalation and resume-ready outputs.",
+  "topic": "Clinical decision support",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

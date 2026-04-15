@@ -1,0 +1,7 @@
+{
+  "project": "06-guardrail-policy-engine",
+  "task": "Policy-guarded agent with enforceable runtime constraints.",
+  "topic": "Data governance",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

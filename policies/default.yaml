@@ -1,0 +1,10 @@
+allowed_tools:
+  - internet_fetch
+  - evaluator
+  - summarizer
+max_retries: 3
+escalation_threshold: 0.55
+redact_tokens:
+  - api_key
+  - password
+  - secret

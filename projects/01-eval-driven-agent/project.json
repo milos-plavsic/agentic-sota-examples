@@ -1,0 +1,7 @@
+{
+  "project": "01-eval-driven-agent",
+  "task": "Evaluation-driven agent for evidence-backed answer refinement.",
+  "topic": "Artificial intelligence safety",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

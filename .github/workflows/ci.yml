@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  quality-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run strict smoke quality gates
+        run: |
+          pytest -q tests/test_projects_smoke.py tests/test_contract_schema.py tests/test_fallback_behavior.py
+
+  keyless-e2e-matrix:
+    needs: [quality-gates]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - 01-eval-driven-agent
+          - 02-multi-agent-debate-judge
+          - 03-human-in-the-loop-review
+          - 04-adaptive-rag-depth
+          - 05-agent-observability-tracing
+          - 06-guardrail-policy-engine
+          - 07-self-improving-prompt-policy-tuner
+          - 08-cost-quality-model-router
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run deterministic keyless e2e project
+        run: python run_project.py --project ${{ matrix.project }} > "ci-${{ matrix.project }}.json"
+      - name: Upload per-project artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-${{ matrix.project }}
+          path: ci-${{ matrix.project }}.json
