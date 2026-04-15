@@ -2,17 +2,12 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-import sys
-
-ROOT = Path(__file__).resolve().parents[1]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
 
 from run_project import run_project_with_config
 
 
 def main() -> None:
-    root = ROOT
+    root = Path(__file__).resolve().parents[1]
     inputs_dir = root / "benchmarks" / "inputs"
     out_dir = root / "reports" / "benchmarks"
     out_dir.mkdir(parents=True, exist_ok=True)
