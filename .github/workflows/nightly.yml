@@ -22,8 +22,9 @@ jobs:
           pip install -r requirements.txt
       - name: Run all project smoke + benchmark artifacts
         run: |
-          pytest -q tests/test_projects_smoke.py tests/test_data_sources.py tests/test_artifacts.py tests/test_contract_schema.py tests/test_fallback_behavior.py
+          pytest -q tests/test_projects_smoke.py tests/test_data_sources.py tests/test_artifacts.py tests/test_contract_schema.py tests/test_fallback_behavior.py tests/test_benchmark_inputs.py
           make run-all
+          make real-benchmarks
       - name: Build benchmark index
         run: |
           python - <<'PY'
@@ -42,6 +43,9 @@ jobs:
               })
           Path("reports/nightly-benchmark.json").write_text(json.dumps(rows, indent=2))
           PY
+      - name: Regenerate benchmark summary markdown
+        run: |
+          make benchmark-summary
       - name: Upload nightly artifacts
         # TODO: bump to next major once upload-artifact is Node24-native upstream.
         uses: actions/upload-artifact@v5
@@ -49,6 +53,7 @@ jobs:
           name: nightly-results
           path: |
             reports/
+            docs/LATEST_BENCHMARK_SUMMARY.md
 
   provider-enabled-matrix:
     runs-on: ubuntu-latest

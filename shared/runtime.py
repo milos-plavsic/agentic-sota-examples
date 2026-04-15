@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Callable
 from pathlib import Path
-from typing import Any, Callable, TypedDict
+from typing import TypedDict
 
 from langgraph.graph import END, StateGraph
 

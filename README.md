@@ -33,6 +33,10 @@ make run PROJECT=01-eval-driven-agent
 - Benchmark snapshot: `docs/LATEST_BENCHMARK_SUMMARY.md`
 - Repo architecture: `docs/ARCHITECTURE.md`
 - Operational runbook: `docs/RUNBOOK.md`
+- Portfolio landing: `docs/PORTFOLIO.md`
+- 2-3 min demo plan: `docs/DEMO_SCRIPT.md`
+- Portfolio landing: `docs/PORTFOLIO.md`
+- 2-3 min demo plan: `docs/DEMO_SCRIPT.md`
 
 ## Shared Design
 
@@ -53,3 +57,5 @@ Each run emits:
 
 - PR CI (`.github/workflows/ci.yml`): strict smoke quality gates plus keyless deterministic e2e matrix for all eight projects.
 - Nightly CI (`.github/workflows/nightly.yml`): full keyless benchmark run and optional provider-enabled matrix when secrets are present.
+- Scheduled benchmark PR workflow (`.github/workflows/benchmark-summary-pr.yml`): refreshes benchmark summary via automated pull request.
+- Scheduled benchmark PR workflow (`.github/workflows/benchmark-summary-pr.yml`): refreshes benchmark summary via automated pull request.

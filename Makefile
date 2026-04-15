@@ -1,10 +1,16 @@
-.PHONY: test run run-all report
+.PHONY: test lint typecheck run run-all report benchmark-summary real-benchmarks
 
 PYTHON := $(if $(wildcard .venv/bin/python),.venv/bin/python,python3)
 PROJECT ?= 01-eval-driven-agent
 
 test:
 	$(PYTHON) -m pytest -q
+
+lint:
+	$(PYTHON) -m ruff check .
+
+typecheck:
+	$(PYTHON) -m mypy run_project.py shared project_pipelines tests scripts
 
 run:
 	$(PYTHON) run_project.py --project $(PROJECT)
@@ -21,3 +27,9 @@ run-all:
 
 report: run-all
 	@echo "Reports generated under reports/"
+
+real-benchmarks:
+	$(PYTHON) scripts/run_real_benchmarks.py
+
+benchmark-summary:
+	$(PYTHON) scripts/generate_benchmark_summary.py

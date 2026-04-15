@@ -1,0 +1,6 @@
+{
+  "task": "Evaluate safety policy options for enterprise copilots.",
+  "topic": "AI alignment",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

@@ -1,0 +1,6 @@
+{
+  "task": "Assess policy guardrail settings for student-risk assistant.",
+  "topic": "student performance",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from run_project import run_project
 
-
 REQUIRED_FIELDS = {
     "project",
     "task",

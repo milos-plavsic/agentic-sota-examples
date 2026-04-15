@@ -1,0 +1,6 @@
+{
+  "task": "Route responses between low-cost and high-quality models.",
+  "topic": "Model routing",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

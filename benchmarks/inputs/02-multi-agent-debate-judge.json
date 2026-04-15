@@ -1,0 +1,6 @@
+{
+  "task": "Debate tradeoffs of offshore wind expansion strategies.",
+  "topic": "Offshore wind energy",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

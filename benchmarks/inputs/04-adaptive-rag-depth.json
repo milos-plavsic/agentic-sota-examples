@@ -1,0 +1,6 @@
+{
+  "task": "Answer with citations about retrieval-augmented generation limits.",
+  "topic": "Retrieval-augmented generation",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}
