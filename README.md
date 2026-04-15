@@ -5,6 +5,10 @@ State-of-the-art portfolio monorepo with eight connected LangGraph projects. All
 [![CI](https://github.com/milos-plavsic/agentic-sota-examples/actions/workflows/ci.yml/badge.svg)](https://github.com/milos-plavsic/agentic-sota-examples/actions/workflows/ci.yml)
 [![Nightly](https://github.com/milos-plavsic/agentic-sota-examples/actions/workflows/nightly.yml/badge.svg)](https://github.com/milos-plavsic/agentic-sota-examples/actions/workflows/nightly.yml)
 
+## Latest Stable Release
+
+- [`v0.1.1`](https://github.com/milos-plavsic/agentic-sota-examples/releases/tag/v0.1.1) - hardening milestone with lint/type gates, benchmark automation, and portfolio/demo docs.
+
 ## Project Matrix
 
 | Project | Focus | Primary Public Source |
