@@ -47,7 +47,7 @@ jobs:
       - name: Run deterministic keyless e2e project
         run: python run_project.py --project ${{ matrix.project }} > "ci-${{ matrix.project }}.json"
       - name: Upload per-project artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ci-${{ matrix.project }}
           path: ci-${{ matrix.project }}.json
