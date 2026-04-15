@@ -50,6 +50,7 @@ jobs:
       - name: Run deterministic keyless e2e project
         run: python run_project.py --project ${{ matrix.project }} > "ci-${{ matrix.project }}.json"
       - name: Upload per-project artifact
+        # TODO: bump to next major once upload-artifact is Node24-native upstream.
         uses: actions/upload-artifact@v5
         with:
           name: ci-${{ matrix.project }}

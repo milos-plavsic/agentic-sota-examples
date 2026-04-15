@@ -2,6 +2,9 @@
 
 State-of-the-art portfolio monorepo with eight connected LangGraph projects. All projects follow a shared orchestration contract and produce standard run artifacts.
 
+[![CI](https://github.com/milos-plavsic/agentic-sota-examples/actions/workflows/ci.yml/badge.svg)](https://github.com/milos-plavsic/agentic-sota-examples/actions/workflows/ci.yml)
+[![Nightly](https://github.com/milos-plavsic/agentic-sota-examples/actions/workflows/nightly.yml/badge.svg)](https://github.com/milos-plavsic/agentic-sota-examples/actions/workflows/nightly.yml)
+
 ## Project Matrix
 
 | Project | Focus | Primary Public Source |
@@ -24,6 +27,12 @@ pip install -r requirements.txt
 make test
 make run PROJECT=01-eval-driven-agent
 ```
+
+## Demo Shortcuts
+
+- Benchmark snapshot: `docs/LATEST_BENCHMARK_SUMMARY.md`
+- Repo architecture: `docs/ARCHITECTURE.md`
+- Operational runbook: `docs/RUNBOOK.md`
 
 ## Shared Design
 

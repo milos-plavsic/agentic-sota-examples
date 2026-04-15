@@ -43,6 +43,7 @@ jobs:
           Path("reports/nightly-benchmark.json").write_text(json.dumps(rows, indent=2))
           PY
       - name: Upload nightly artifacts
+        # TODO: bump to next major once upload-artifact is Node24-native upstream.
         uses: actions/upload-artifact@v5
         with:
           name: nightly-results
@@ -70,6 +71,7 @@ jobs:
           python run_project.py --project 08-cost-quality-model-router > provider_08.json
       - name: Upload provider artifacts
         if: ${{ env.OPENAI_API_KEY != '' || env.ANTHROPIC_API_KEY != '' }}
+        # TODO: bump to next major once upload-artifact is Node24-native upstream.
         uses: actions/upload-artifact@v5
         with:
           name: nightly-provider-results
