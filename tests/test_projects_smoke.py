@@ -5,6 +5,7 @@ from shared.testing import PROJECTS
 
 
 def test_all_projects_contract_smoke() -> None:
+    """Execute the test all projects contract smoke routine."""
     required = {
         "project",
         "task",

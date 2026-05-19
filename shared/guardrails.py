@@ -7,12 +7,14 @@ import yaml
 
 
 def load_policy(path: str | None = None) -> dict[str, Any]:
+    """Execute the load policy routine."""
     root = Path(__file__).resolve().parents[1]
     target = Path(path) if path else (root / "policies" / "default.yaml")
     return yaml.safe_load(target.read_text(encoding="utf-8"))
 
 
 def enforce_policy(action: str, *, retries: int) -> tuple[bool, str]:
+    """Execute the enforce policy routine."""
     policy = load_policy()
     allowed = set(policy.get("allowed_tools", []))
     max_retries = int(policy.get("max_retries", 3))
@@ -24,6 +26,7 @@ def enforce_policy(action: str, *, retries: int) -> tuple[bool, str]:
 
 
 def redact_sensitive(text: str) -> str:
+    """Execute the redact sensitive routine."""
     policy = load_policy()
     output = text
     for token in policy.get("redact_tokens", []):

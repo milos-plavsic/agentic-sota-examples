@@ -7,6 +7,7 @@ from shared.data_sources.base import SourceRecord, fetch_json_with_cache
 
 
 def fetch_wikipedia_summary(topic: str) -> SourceRecord:
+    """Execute the fetch wikipedia summary routine."""
     safe_topic = quote(topic.strip().replace(" ", "_"))
     url = f"https://en.wikipedia.org/api/rest_v1/page/summary/{safe_topic}"
     t0 = time.perf_counter()

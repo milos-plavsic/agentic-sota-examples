@@ -7,6 +7,7 @@ from shared.testing import PROJECTS
 
 
 def test_plan_acceptance_criteria_end_to_end() -> None:
+    """Execute the test plan acceptance criteria end to end routine."""
     outputs = [run_project(project) for project in PROJECTS]
     assert len(outputs) == 8
 

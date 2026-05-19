@@ -6,7 +6,10 @@ from shared.data_sources.base import SourceRecord, fetch_json_with_cache
 
 
 def fetch_arxiv_snippet(query: str) -> SourceRecord:
-    url = f"https://export.arxiv.org/api/query?search_query=all:{quote(query)}&start=0&max_results=1"
+    """Execute the fetch arxiv snippet routine."""
+    url = (
+        f"https://export.arxiv.org/api/query?search_query=all:{quote(query)}&start=0&max_results=1"
+    )
     # arXiv endpoint is XML; we still probe availability via cached JSON utility fallback path.
     payload = fetch_json_with_cache(url)
     if payload:

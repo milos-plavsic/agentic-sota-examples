@@ -6,6 +6,8 @@ from shared.orchestration_policy import clip01, weighted_confidence
 
 
 class EvalResult(TypedDict):
+    """Implementation of the eval result."""
+
     primary_quality: float
     secondary_quality: float
     stability: float
@@ -23,6 +25,7 @@ def score_text_answer(
     latency_ms: int = 0,
     estimated_cost_usd: float = 0.0,
 ) -> EvalResult:
+    """Execute the score text answer routine."""
     answer_len = max(1, len(answer))
     overlap_tokens = set(answer.lower().split()) & set(source_context.lower().split())
     overlap_ratio = len(overlap_tokens) / max(1, len(set(source_context.lower().split())))

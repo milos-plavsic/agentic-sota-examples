@@ -7,6 +7,7 @@ from run_project import run_project_with_config
 
 
 def main() -> None:
+    """Execute the main routine."""
     root = Path(__file__).resolve().parents[1]
     inputs_dir = root / "benchmarks" / "inputs"
     out_dir = root / "reports" / "benchmarks"
@@ -28,8 +29,14 @@ def main() -> None:
             }
         )
 
-    (out_dir / "real-benchmark-results.json").write_text(json.dumps(rows, indent=2), encoding="utf-8")
-    print(json.dumps({"count": len(rows), "output": str(out_dir / "real-benchmark-results.json")}, indent=2))
+    (out_dir / "real-benchmark-results.json").write_text(
+        json.dumps(rows, indent=2), encoding="utf-8"
+    )
+    print(
+        json.dumps(
+            {"count": len(rows), "output": str(out_dir / "real-benchmark-results.json")}, indent=2
+        )
+    )
 
 
 if __name__ == "__main__":

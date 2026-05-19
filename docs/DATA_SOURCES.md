@@ -29,4 +29,4 @@
 ## Nightly Extensions
 
 - When secrets are available, nightly workflow enables provider-backed runs.
-- Supported secrets: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`.
+- Supported secrets: `OPENAI_API_KEY`.

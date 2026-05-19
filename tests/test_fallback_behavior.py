@@ -5,6 +5,7 @@ import shared.data_sources.wikipedia as wiki
 
 
 def test_wikipedia_fallback_when_remote_unavailable(monkeypatch) -> None:
+    """Execute the test wikipedia fallback when remote unavailable routine."""
     monkeypatch.setattr(wiki, "fetch_json_with_cache", lambda *args, **kwargs: None)
     out = ds.fetch_wikipedia_summary("Any topic")
     assert out.used_fallback is True

@@ -7,6 +7,7 @@ from shared.data_sources.base import SourceRecord, fetch_json_with_cache
 
 def fetch_uci_dataset_note(dataset_name: str) -> SourceRecord:
     # Public endpoint with metadata entries for UCI dataset records.
+    """Execute the fetch uci dataset note routine."""
     url = f"https://archive.ics.uci.edu/api/dataset/list?search={quote(dataset_name)}"
     payload = fetch_json_with_cache(url)
     if payload:

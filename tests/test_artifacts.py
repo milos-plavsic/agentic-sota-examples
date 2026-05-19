@@ -6,6 +6,7 @@ from run_project import run_project
 
 
 def test_project_run_writes_required_artifacts() -> None:
+    """Execute the test project run writes required artifacts routine."""
     out = run_project("03-human-in-the-loop-review")
     for key in ("summary_path", "report_path", "trace_path"):
         p = Path(str(out[key]))

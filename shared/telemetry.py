@@ -7,6 +7,7 @@ from typing import Any
 
 
 def emit_trace(project: str, events: list[dict[str, Any]]) -> str:
+    """Execute the emit trace routine."""
     root = Path(__file__).resolve().parents[1]
     out_dir = root / "reports" / "traces"
     out_dir.mkdir(parents=True, exist_ok=True)

@@ -7,6 +7,7 @@ from shared.testing import PROJECTS
 
 
 def test_real_benchmark_inputs_exist_for_all_projects() -> None:
+    """Execute the test real benchmark inputs exist for all projects routine."""
     root = Path(__file__).resolve().parents[1]
     inputs = root / "benchmarks" / "inputs"
     files = {p.stem: p for p in inputs.glob("*.json")}

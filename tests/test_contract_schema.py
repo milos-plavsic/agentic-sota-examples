@@ -22,6 +22,7 @@ REQUIRED_FIELDS = {
 
 
 def test_contract_schema_types_and_enums() -> None:
+    """Execute the test contract schema types and enums routine."""
     out = run_project("01-eval-driven-agent")
     assert REQUIRED_FIELDS.issubset(out.keys())
     assert isinstance(out["project"], str)

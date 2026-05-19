@@ -5,6 +5,7 @@ from pathlib import Path
 
 
 def _load_rows(root: Path) -> list[dict[str, object]]:
+    """Internal helper that handles load rows."""
     nightly = root / "reports" / "nightly-benchmark.json"
     if nightly.exists():
         return json.loads(nightly.read_text(encoding="utf-8"))
@@ -25,6 +26,7 @@ def _load_rows(root: Path) -> list[dict[str, object]]:
 
 
 def main() -> None:
+    """Execute the main routine."""
     root = Path(__file__).resolve().parents[1]
     rows = _load_rows(root)
     out = root / "docs" / "LATEST_BENCHMARK_SUMMARY.md"
@@ -45,7 +47,13 @@ def main() -> None:
     if rows:
         avg = sum(float(r["confidence_score"]) for r in rows) / len(rows)
         fallback_n = sum(1 for r in rows if bool(r["used_fallback"]))
-        lines.extend(["", f"- Average confidence: **{avg:.3f}**", f"- Fallback usage: **{fallback_n}/{len(rows)}**"])
+        lines.extend(
+            [
+                "",
+                f"- Average confidence: **{avg:.3f}**",
+                f"- Fallback usage: **{fallback_n}/{len(rows)}**",
+            ]
+        )
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(str(out))
 

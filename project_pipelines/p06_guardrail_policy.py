@@ -6,6 +6,7 @@ from shared.runtime import RunState, run_graph
 
 
 def _proposer(state: RunState) -> str:
+    """Internal helper that handles proposer."""
     allowed, reason = enforce_policy("internet_fetch", retries=int(state["iteration"]) - 1)
     return (
         "Guardrail policy execution: validate allowed tools, redact sensitive inputs, "
@@ -14,6 +15,7 @@ def _proposer(state: RunState) -> str:
 
 
 def run(cfg: dict[str, object]) -> dict[str, object]:
+    """Execute the run routine."""
     cfg = {**cfg, "topic": "student performance"}
     result = run_graph(
         cfg=cfg,

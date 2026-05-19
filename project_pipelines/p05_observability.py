@@ -5,6 +5,7 @@ from shared.runtime import RunState, run_graph
 
 
 def _proposer(state: RunState) -> str:
+    """Internal helper that handles proposer."""
     return (
         "Observability-first execution: emit node-level traces, confidence trajectory, "
         f"and latency-aware diagnostics for iteration={state['iteration']}."
@@ -12,6 +13,7 @@ def _proposer(state: RunState) -> str:
 
 
 def run(cfg: dict[str, object]) -> dict[str, object]:
+    """Execute the run routine."""
     cfg = {**cfg, "topic": "open-telemetry/opentelemetry-python"}
     return run_graph(
         cfg=cfg,

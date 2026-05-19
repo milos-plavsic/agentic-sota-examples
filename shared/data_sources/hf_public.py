@@ -6,6 +6,7 @@ from shared.data_sources.base import SourceRecord, fetch_json_with_cache
 
 
 def fetch_hf_dataset_card(dataset_id: str) -> SourceRecord:
+    """Execute the fetch hf dataset card routine."""
     url = f"https://huggingface.co/api/datasets/{quote(dataset_id)}"
     payload = fetch_json_with_cache(url)
     if payload:

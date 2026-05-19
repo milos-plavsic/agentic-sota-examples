@@ -6,6 +6,7 @@ from shared.data_sources.base import SourceRecord, fetch_json_with_cache
 
 
 def fetch_github_repo_summary(repo_full_name: str) -> SourceRecord:
+    """Execute the fetch github repo summary routine."""
     slug = quote(repo_full_name.strip(), safe="/")
     url = f"https://api.github.com/repos/{slug}"
     payload = fetch_json_with_cache(url)
@@ -20,9 +21,7 @@ def fetch_github_repo_summary(repo_full_name: str) -> SourceRecord:
             status_code=200,
             latency_ms=0,
         )
-    fallback = (
-        f"Fallback GitHub repo summary for {repo_full_name}: public GitHub API unavailable."
-    )
+    fallback = f"Fallback GitHub repo summary for {repo_full_name}: public GitHub API unavailable."
     return SourceRecord(
         source="fixture://github-public",
         content=fallback,

@@ -13,6 +13,8 @@ from shared.telemetry import emit_trace
 
 
 class RunState(TypedDict, total=False):
+    """Implementation of the run state."""
+
     project: str
     task: str
     topic: str
@@ -44,10 +46,12 @@ def run_graph(
     proposer: Proposer,
     estimated_cost_usd: float = 0.0,
 ) -> dict[str, object]:
+    """Execute the run graph routine."""
     root = Path(__file__).resolve().parents[1]
     project_name = str(cfg["project"])
 
     def _fetch_source(state: RunState) -> RunState:
+        """Internal helper that handles fetch source."""
         rec = source_fetcher(str(state["topic"]))
         trace = list(state.get("trace_events", []))
         trace.append({"node": "fetch", "source": rec["source"], "fallback": rec["used_fallback"]})
@@ -60,12 +64,16 @@ def run_graph(
         }
 
     def _propose(state: RunState) -> RunState:
+        """Internal helper that handles propose."""
         answer = proposer(state)
         trace = list(state.get("trace_events", []))
-        trace.append({"node": "propose", "answer_len": len(answer), "iteration": state["iteration"]})
+        trace.append(
+            {"node": "propose", "answer_len": len(answer), "iteration": state["iteration"]}
+        )
         return {"answer": answer, "trace_events": trace}
 
     def _evaluate(state: RunState) -> RunState:
+        """Internal helper that handles evaluate."""
         iteration = int(state.get("iteration", 1))
         ev = score_text_answer(
             str(state["answer"]),
@@ -87,6 +95,7 @@ def run_graph(
         }
 
     def _assess_and_decide(state: RunState) -> RunState:
+        """Internal helper that handles assess and decide."""
         iteration = int(state.get("iteration", 1))
         decision = decide_loop(
             confidence_score=float(state["confidence_score"]),
@@ -106,9 +115,11 @@ def run_graph(
         }
 
     def _route(state: RunState) -> str:
+        """Internal helper that handles route."""
         return "retry" if bool(state.get("continue_loop")) else "finalize"
 
     def _retry(state: RunState) -> RunState:
+        """Internal helper that handles retry."""
         return {"iteration": int(state.get("iteration", 1)) + 1}
 
     graph = StateGraph(RunState)

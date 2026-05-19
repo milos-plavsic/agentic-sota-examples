@@ -10,6 +10,7 @@ from shared.data_sources import (
 
 
 def test_public_data_sources_return_content() -> None:
+    """Execute the test public data sources return content routine."""
     records = [
         fetch_wikipedia_summary("Machine learning"),
         fetch_arxiv_snippet("large language models"),
