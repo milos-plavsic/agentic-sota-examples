@@ -31,4 +31,4 @@ scikit-learn==1.4.1.post1
 scipy==1.13.0
 
 # observability
-prometheus-client>=0.20.0
+prometheus-client>=0.25.0
