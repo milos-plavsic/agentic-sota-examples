@@ -1,0 +1,15 @@
+{
+  "project": "07-self-improving-prompt-policy-tuner",
+  "recommended_change": "Targeted improvements applied: coherence",
+  "strategies_applied": [
+    "coherence"
+  ],
+  "expected_impact": {
+    "confidence_delta": 0.2124,
+    "latency_delta_ms": 80
+  },
+  "weakest_dimension_per_round": [
+    "none",
+    "coherence"
+  ]
+}

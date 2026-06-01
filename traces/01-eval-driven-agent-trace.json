@@ -1,0 +1,8 @@
+{
+  "project": "01-eval-driven-agent",
+  "iterations": 2,
+  "decision_log": [
+    "confidence_threshold_reached",
+    "confidence_threshold_reached"
+  ]
+}

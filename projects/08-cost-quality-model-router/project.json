@@ -1,0 +1,7 @@
+{
+  "project": "08-cost-quality-model-router",
+  "task": "Cost-quality routing strategy with escalation behavior.",
+  "topic": "Model serving optimization",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

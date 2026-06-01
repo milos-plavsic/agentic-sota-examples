@@ -1,0 +1,7 @@
+{
+  "project": "07-self-improving-prompt-policy-tuner",
+  "task": "Self-improving loop that proposes and evaluates prompt policy updates.",
+  "topic": "Prompt engineering",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

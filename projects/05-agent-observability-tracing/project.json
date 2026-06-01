@@ -1,0 +1,7 @@
+{
+  "project": "05-agent-observability-tracing",
+  "task": "Observability-first agent with confidence trajectory and trace outputs.",
+  "topic": "OpenTelemetry",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

@@ -1,0 +1,7 @@
+{
+  "project": "02-multi-agent-debate-judge",
+  "task": "Multi-agent debate with judge-based synthesis and confidence scoring.",
+  "topic": "Renewable energy transition",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

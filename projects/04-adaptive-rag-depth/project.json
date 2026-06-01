@@ -1,0 +1,7 @@
+{
+  "project": "04-adaptive-rag-depth",
+  "task": "Adaptive RAG depth example with dynamic retrieval effort.",
+  "topic": "Large language models",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

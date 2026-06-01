@@ -1,0 +1,6 @@
+{
+  "task": "Escalate uncertain remediation steps for security incident playbooks.",
+  "topic": "microsoft/semantic-kernel",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

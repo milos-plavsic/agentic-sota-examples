@@ -1,0 +1,6 @@
+{
+  "task": "Propose prompt policy updates for sentiment tutor failures.",
+  "topic": "stanfordnlp/imdb",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}

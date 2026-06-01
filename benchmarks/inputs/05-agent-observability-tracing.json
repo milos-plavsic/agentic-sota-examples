@@ -1,0 +1,6 @@
+{
+  "task": "Explain key telemetry dimensions for agent workflows.",
+  "topic": "open-telemetry/opentelemetry-python",
+  "confidence_threshold": 0.72,
+  "max_iterations": 3
+}
